@@ -1,0 +1,5 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+body { min-height: 100vh; }
+.card { @apply rounded-2xl border border-leaf-700/10 bg-white/80 shadow-sm; }
