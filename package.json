@@ -1,0 +1,9 @@
+{
+  "name": "shelfwise",
+  "private": true,
+  "scripts": {
+    "api": "npm run start:dev --prefix apps/api",
+    "web": "npm start --prefix apps/web",
+    "test": "npm test --prefix apps/api"
+  }
+}

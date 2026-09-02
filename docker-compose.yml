@@ -1,0 +1,25 @@
+services:
+  api:
+    build:
+      context: ./apps/api
+    ports:
+      - "3000:3000"
+    environment:
+      DATABASE_URL: ${DATABASE_URL}
+      JWT_SECRET: ${JWT_SECRET:-dev-secret-change-me}
+      PORT: 3000
+      CORS_ORIGIN: http://localhost:4200
+    depends_on:
+      - postgres
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: shelfwise
+      POSTGRES_PASSWORD: shelfwise
+      POSTGRES_DB: shelfwise
+    ports:
+      - "5432:5432"
+    volumes:
+      - shelfwise_pg:/var/lib/postgresql/data
+volumes:
+  shelfwise_pg:
